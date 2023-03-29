@@ -10,13 +10,8 @@ namespace DependencyInjectionRegistrationOption.BLL
         private readonly IOperationSingleton _operationSingleton;
         private readonly IOperationTransient _operationTransient;
 
-        public DummyBusiness(ILogger<DummyBusiness> logger, IOperationScoped operationScoped, IOperationSingleton operationSingleton, IOperationTransient operationTransient)
-        {
-            _logger = logger;
-            _operationScoped = operationScoped;
-            _operationSingleton = operationSingleton;
-            _operationTransient = operationTransient;
-        }
+        public DummyBusiness(ILogger<DummyBusiness> logger, IOperationScoped operationScoped, IOperationSingleton operationSingleton, IOperationTransient operationTransient) => 
+            (_logger, _operationScoped, _operationSingleton, _operationTransient) = (logger, operationScoped, operationSingleton, operationTransient);
 
         public void DoOperation()
         {
